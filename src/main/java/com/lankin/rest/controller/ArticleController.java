@@ -44,4 +44,23 @@ public class ArticleController {
         return new ResponseEntity<Article>(articleService.updateArticle(article,articleId), HttpStatus.OK);
     }
 
+    //build delete article REST API
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteArticle(@PathVariable("id") long articleId){
+
+        //delete article from DB
+        articleService.getArticleById(articleId);
+
+        return new ResponseEntity<String>("Article deleted successfully", HttpStatus.OK);
+    }
+
+
+
+
+
+
+
+
+
+
 }

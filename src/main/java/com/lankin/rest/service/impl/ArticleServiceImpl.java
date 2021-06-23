@@ -71,4 +71,13 @@ public class ArticleServiceImpl implements ArticleService {
 
         return existingArticle;
     }
+
+    @Override
+    public void deleteArticle(long id) {
+
+        //we need to check whether Article with given id is exist in DB or not
+        articleRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("article", "id", id));
+        articleRepository.deleteById(id);
+    }
 }
