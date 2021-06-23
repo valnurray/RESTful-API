@@ -4,6 +4,14 @@ import com.lankin.rest.model.Article;
 
 import java.util.List;
 
+/**
+ * Class {@code ArticleService} in package {@code com.lankin.rest.service}
+ * interface for Entity Service layer
+ *
+ * @author Nikita Lankin
+ * @version 1.0
+ *
+ */
 public interface ArticleService {
 
     Article saveArticle (Article article);

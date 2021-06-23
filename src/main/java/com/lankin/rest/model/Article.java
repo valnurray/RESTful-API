@@ -9,6 +9,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Column;
 import javax.persistence.GenerationType;
 
+/**
+ * Class {@code Article} in package {@code com.lankin.rest.model}
+ *
+ * Entity in DB
+ *
+ * @author Nikita Lankin
+ * @version 1.0
+ *
+ */
 @Data
 @Entity
 @Table(name = "article")
