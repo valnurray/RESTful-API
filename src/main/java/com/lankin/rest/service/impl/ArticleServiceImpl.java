@@ -21,7 +21,7 @@ public class ArticleServiceImpl implements ArticleService {
     * has only one constructor, the @Autowired annotation can be omitted
     * and Spring will use that constructor and inject all necessary dependencies
     */
-        public ArticleServiceImpl(ArticleRepository articleRepository) {
+    public ArticleServiceImpl(ArticleRepository articleRepository) {
         this.articleRepository = articleRepository;
     }
 
@@ -40,6 +40,9 @@ public class ArticleServiceImpl implements ArticleService {
      */
     @Override
     public Article getArticleById(long id) {
+        /*
+         * without lambda!
+         */
 //        Optional <Article> article = articleRepository.findById(id);
 //        if(article.isPresent()){
 //            return article.get();
@@ -47,7 +50,25 @@ public class ArticleServiceImpl implements ArticleService {
 //            throw new ResourceNotFoundException("article", "id", id);
 //        }
 
+        /*
+         * with lambda
+         */
         return articleRepository.findById(id).orElseThrow(() ->
                     new ResourceNotFoundException("article", "id", id));
+    }
+
+    @Override
+    public Article updateArticle(Article article, long id) {
+        //we need to check whether Article with given id is exist in DB or not
+        Article existingArticle = articleRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("article", "id", id));
+        //change parameters
+        existingArticle.setAuthor(article.getAuthor());
+        existingArticle.setBody(article.getBody());
+        existingArticle.setTitle(article.getTitle());
+        //save existing Article to DB
+        articleRepository.save(existingArticle);
+
+        return existingArticle;
     }
 }

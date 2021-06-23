@@ -36,4 +36,12 @@ public class ArticleController {
     public ResponseEntity<Article> getArticleById(@PathVariable("id") long articleId){
         return new ResponseEntity<Article>(articleService.getArticleById(articleId), HttpStatus.OK);
     }
+
+    //build get article REST API
+    @PutMapping("{id}")
+    public ResponseEntity<Article> updateArticle(@PathVariable("id")  long articleId
+                                                ,@RequestBody Article article) {
+        return new ResponseEntity<Article>(articleService.updateArticle(article,articleId), HttpStatus.OK);
+    }
+
 }
