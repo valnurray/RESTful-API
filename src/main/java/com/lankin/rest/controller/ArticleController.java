@@ -49,7 +49,7 @@ public class ArticleController {
     public ResponseEntity<String> deleteArticle(@PathVariable("id") long articleId){
 
         //delete article from DB
-        articleService.getArticleById(articleId);
+        articleService.deleteArticle(articleId);
 
         return new ResponseEntity<String>("Article deleted successfully", HttpStatus.OK);
     }
