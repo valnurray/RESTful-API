@@ -6,5 +6,8 @@ import org.springframework.stereotype.Repository;
 
 //need or not @?
 //@Repository
+/**
+ * SimpleRepository.class already have @Repository annotation and JpaRepository extends from it
+ */
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 }

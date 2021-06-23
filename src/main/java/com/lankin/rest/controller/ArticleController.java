@@ -25,6 +25,4 @@ public class ArticleController {
         return new ResponseEntity<Article>(articleService.saveArticle(article), HttpStatus.CREATED);
     }
 
-
-
 }

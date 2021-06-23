@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Column;
 import javax.persistence.GenerationType;
 
-
 @Data
 @Entity
 @Table(name = "article")
