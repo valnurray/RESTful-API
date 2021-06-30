@@ -15,6 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @SpringBootApplication
 /*http://localhost:8080/v2/api-docs*/
+/*http://localhost:8080/swagger-ui.html*/
 @EnableSwagger2
 public class RestNumberTwoApplication {
 
